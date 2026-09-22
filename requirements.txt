@@ -1,0 +1,3 @@
+# Install both frameworks, or choose requirements-tensorflow.txt / requirements-pytorch.txt.
+-r requirements-tensorflow.txt
+-r requirements-pytorch.txt

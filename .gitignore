@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local data, downloaded archives and training outputs
+artifacts/
+outputs/
+checkpoints/
+datasets/downloads/
+*.keras
+*.h5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.tflite
+*.pkl
+*.joblib
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
