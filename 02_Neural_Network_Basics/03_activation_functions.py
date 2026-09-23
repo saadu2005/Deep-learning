@@ -1,3 +1,10 @@
+"""File purpose: Compare sigmoid, ReLU, and tanh activation functions on a small set of values.
+
+Explanation: The functions transform raw numbers in different ways so a neural network can represent nonlinear patterns.
+
+Real-life example: A neural network sorting photos into categories can use activations to learn curved decision boundaries that a straight-line rule cannot represent.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

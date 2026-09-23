@@ -1,9 +1,20 @@
-# Project 3 · Sentiment analysis
+# Sentiment Analysis
 
-A trainable binary sentiment classifier on the official Keras **IMDB** integer-tokenized review dataset. The model uses token embeddings, global average pooling and dropout. Train/validation are drawn from the training partition; the official test partition stays untouched until evaluation.
+## Purpose
 
-```bash
-python 12_Projects/03_sentiment_analysis/main.py --epochs 2 --limit 2000
-```
+Outline a text-processing and model-training workflow for a sentiment-analysis project; this folder is currently a starter plan.
 
-Drop `--limit` for full training. The example predicts on a pre-tokenized IMDB test sample, not arbitrary raw text: deploying arbitrary text requires reproducing the exact IMDB vocabulary and encoding rules. The first run downloads the dataset. Models are written to the ignored `artifacts/` folder.
+## Real-Life Example
+
+An online shop could sort product reviews into positive and negative groups to help staff find common customer concerns.
+
+Starter project for classifying text into sentiment categories.
+
+Suggested workflow:
+1. Collect text data.
+2. Clean the text.
+3. Tokenize the text.
+4. Pad sequences.
+5. Build an embedding + sequence model.
+6. Train and evaluate.
+7. Test new sentences.

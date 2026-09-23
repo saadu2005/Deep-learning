@@ -1,3 +1,10 @@
+"""File purpose: Show the basic PyTorch training loop using a linear model and stochastic gradient descent.
+
+Explanation: Each loop pass computes predictions and loss, clears old gradients, calculates new gradients, and updates model parameters.
+
+Real-life example: A forecasting model can repeat these steps over past sales examples until its predicted sales are closer to actual sales.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================
@@ -35,9 +42,5 @@ for epoch in range(500):
 # ==========================================
 # 6. Display Results
 # ==========================================
-model.eval()
-with torch.no_grad():
-    final_loss = loss_function(model(X), y).item()
-    next_prediction = model(torch.tensor([[4.0]])).item()
-print("Final Loss:", final_loss)
-print("Prediction for 4:", next_prediction)
+print("Final Loss:", loss.item())
+print("Prediction for 4:", model(torch.tensor([[4.0]])).item())

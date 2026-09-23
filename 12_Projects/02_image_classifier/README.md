@@ -1,9 +1,19 @@
-# Project 2 · Fashion image classifier
+# Image Classifier
 
-A complete ten-class convolutional classifier using **Fashion-MNIST** (clothing images). No custom folder or Kaggle token is required. The built-in dataset downloads once; a held-out test split is only used for evaluation. Includes softmax prediction, model saving and a JSON class mapping.
+## Purpose
 
-```bash
-python 12_Projects/02_image_classifier/main.py --epochs 2 --limit 5000
-```
+Outline the steps needed to build a custom image-classification project; this folder is currently a starter plan, not a runnable app.
 
-Remove `--limit` for full training. Model and class mapping are created in `artifacts/`, which is excluded from Git. Images must be 28×28 grayscale, float32, scaled to [0,1] for inference; this is **not** a general-purpose arbitrary image classifier.
+## Real-Life Example
+
+A farm could classify crop photos as healthy or possibly diseased after collecting labeled images and training the model.
+
+Starter project structure for building an image classification system.
+
+Suggested next steps:
+1. Add a custom image dataset.
+2. Create train/validation folders.
+3. Add data augmentation.
+4. Train a CNN.
+5. Add prediction for a single image.
+6. Save the trained model.

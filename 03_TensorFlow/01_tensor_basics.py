@@ -1,3 +1,10 @@
+"""File purpose: Introduce TensorFlow tensors and basic element-wise tensor arithmetic.
+
+Explanation: The code creates a constant matrix, doubles its values, and prints the values and shape.
+
+Real-life example: Image-processing code can treat pixel brightness values as a tensor and scale them before feeding them into a model.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

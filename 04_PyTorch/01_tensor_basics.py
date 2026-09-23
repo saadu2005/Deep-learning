@@ -1,3 +1,10 @@
+"""File purpose: Introduce PyTorch tensors and element-wise tensor arithmetic.
+
+Explanation: The script creates a floating-point matrix, doubles it, and prints the result and shape.
+
+Real-life example: A computer-vision program can store a small batch of image pixel values in tensors and scale the batch before inference.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

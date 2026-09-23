@@ -1,3 +1,10 @@
+"""File purpose: Show the weighted-sum calculation that is a basic building block of a neuron.
+
+Explanation: The script multiplies each input by its matching weight, adds the results, and prints the score. It introduces how a model combines signals before making a decision.
+
+Real-life example: A basic spam filter could give suspicious words different weights and add their contributions to produce a spam score.
+"""
+
 # ==========================================
 # 1. Define Inputs
 # ==========================================

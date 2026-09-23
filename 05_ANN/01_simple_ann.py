@@ -1,3 +1,10 @@
+"""File purpose: Build and evaluate an artificial neural network for Iris species classification.
+
+Explanation: The code uses a multi-layer dense network with a softmax output and reports accuracy on a held-out split. The scaler is currently fitted before the split, which can leak test-set information.
+
+Real-life example: A flower-identification kiosk could use petal and sepal measurements to suggest one of the three Iris species.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================
@@ -5,12 +12,8 @@ import tensorflow as tf
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense
 from sklearn.datasets import load_iris
-from pathlib import Path
-import sys
-
-# Allow this lesson to run directly from the repository root.
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from dl_utils import classification_split
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 # ==========================================
 # 2. Load Dataset
@@ -22,7 +25,12 @@ y = data.target
 # ==========================================
 # 3. Preprocess Data
 # ==========================================
-X_train, X_test, y_train, y_test, scaler = classification_split(X, y)
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
 
 # ==========================================
 # 4. Build ANN

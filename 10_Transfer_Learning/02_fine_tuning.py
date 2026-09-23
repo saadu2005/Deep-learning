@@ -1,3 +1,10 @@
+"""File purpose: Demonstrate unfreezing the final MobileNetV2 layers for later fine-tuning.
+
+Explanation: The code freezes all but the last twenty base-model layers and counts trainable layers; it does not yet compile or train the model on new images.
+
+Real-life example: A wildlife project could adapt the final layers of an ImageNet model to distinguish local bird species using a labeled photo collection.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

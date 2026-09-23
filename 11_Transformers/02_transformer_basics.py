@@ -1,3 +1,10 @@
+"""File purpose: Demonstrate a multi-head self-attention layer followed by a residual connection and layer normalization.
+
+Explanation: The code prints tensor shapes for these Transformer components. It is a partial block: it does not include positional encoding or the feed-forward sublayer.
+
+Real-life example: A language model can use self-attention to relate a word to other words in a sentence, such as using nearby context to interpret the word bank.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

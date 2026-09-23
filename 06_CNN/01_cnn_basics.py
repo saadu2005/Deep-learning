@@ -1,3 +1,10 @@
+"""File purpose: Define a convolutional neural network and show its layer shapes without training it.
+
+Explanation: The architecture uses convolution, pooling, flattening, and dense layers for 28-by-28 grayscale images with ten output classes.
+
+Real-life example: A small digit-recognition model could identify handwritten numbers on scanned forms.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

@@ -1,41 +1,58 @@
-"""RNN one-step forecasting demo with chronological evaluation (synthetic series)."""
+"""File purpose: Train a SimpleRNN to predict the next number in a sliding sequence.
+
+Explanation: The script turns a counting sequence into five-step input windows, trains on the next value, and predicts after the sequence ending at 100.
+
+Real-life example: The same windowing approach can forecast the next hour of electricity use from recent readings, although this demo uses a simple counting pattern.
+"""
+
+# ==========================================
+# 1. Import Libraries
+# ==========================================
 import numpy as np
 import tensorflow as tf
-from sklearn.preprocessing import StandardScaler
-from tensorflow.keras import Sequential, Input
+from tensorflow.keras import Sequential
 from tensorflow.keras.layers import SimpleRNN, Dense
-from pathlib import Path
-import sys
 
-# Allow this lesson to run directly from the repository root.
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from dl_utils import chronological_windows
+# ==========================================
+# 2. Create Sequence Dataset
+# ==========================================
+values = np.arange(0, 101, dtype=np.float32)
 
-# 1. Set seed and make a smooth series; never shuffle time-series targets.
-tf.keras.utils.set_random_seed(42)
-time = np.arange(240, dtype='float32')
-values = (0.02 * time + np.sin(time / 8.0)).astype('float32')
-train_end, test_end, lookback = 160, 240, 12
+X = []
+y = []
 
-# 2. Fit preprocessing ONLY on train observations; preserve previous-step context.
-scaler = StandardScaler().fit(values[:train_end, None])
-scaled = scaler.transform(values[:, None]).ravel()
-X_train, y_train = chronological_windows(scaled, lookback, lookback, train_end)
-X_test, y_test = chronological_windows(scaled, lookback, train_end, test_end)
+for i in range(len(values) - 5):
+    X.append(values[i:i + 5])
+    y.append(values[i + 5])
 
-# 3. Compile and train the model.
-model = Sequential([Input(shape=(lookback, 1)), SimpleRNN(32), Dense(1)])
-model.compile(optimizer='adam', loss='mse')
-model.fit(X_train, y_train, epochs=25, batch_size=16, verbose=0, shuffle=False)
+X = np.array(X)[..., None]
+y = np.array(y)
 
-# 4. Evaluate on future observations, with the original units restored.
-pred_scaled = model.predict(X_test, verbose=0)
-predictions = scaler.inverse_transform(pred_scaled).ravel()
-actual = scaler.inverse_transform(y_test[:, None]).ravel()
-print('Test MAE:', float(np.mean(np.abs(predictions - actual))))
+# ==========================================
+# 3. Build RNN
+# ==========================================
+model = Sequential([
+    SimpleRNN(32, input_shape=(5, 1)),
+    Dense(1)
+])
 
-# 5. Forecast one step after the final observed data point.
-forecast_scaled = model.predict(scaled[-lookback:].reshape(1, lookback, 1), verbose=0)
-forecast = scaler.inverse_transform(forecast_scaled)[0, 0]
-print('Forecast next value:', float(forecast))
-print('Note: synthetic example, not a guarantee of real-world forecasting accuracy.')
+# ==========================================
+# 4. Compile Model
+# ==========================================
+model.compile(optimizer="adam", loss="mse")
+
+# ==========================================
+# 5. Train Model
+# ==========================================
+model.fit(X, y, epochs=30, verbose=0)
+
+# ==========================================
+# 6. Make Prediction
+# ==========================================
+test_sequence = np.array([[96, 97, 98, 99, 100]], dtype=np.float32)[..., None]
+prediction = model.predict(test_sequence, verbose=0)
+
+# ==========================================
+# 7. Display Result
+# ==========================================
+print("Predicted next value:", float(prediction[0][0]))

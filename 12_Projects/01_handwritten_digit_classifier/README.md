@@ -1,9 +1,18 @@
-# Project 1 · Handwritten digit classifier
+# Handwritten Digit Classifier
 
-A TensorFlow CNN trained on the bundled MNIST train split and evaluated once on the independent test split. Downloads MNIST on first run.
+## Purpose
 
-```bash
-python 12_Projects/01_handwritten_digit_classifier/main.py --epochs 2 --limit 5000 --output artifacts/mnist.keras
-```
+Explain the runnable MNIST CNN project and the concepts it demonstrates.
 
-Remove `--limit` for full training. `--output` writes a trained model locally; it is ignored by Git. Accuracy varies by environment, number of epochs and data size. Training and test data must not overlap.
+## Real-Life Example
+
+A mailroom could use a digit recognizer to suggest postal-code digits from scanned envelopes, while a person checks uncertain predictions.
+
+A CNN project using the MNIST dataset to classify handwritten digits from 0 to 9.
+
+Main concepts:
+- Image preprocessing
+- CNN layers
+- Pooling
+- Softmax classification
+- Model evaluation

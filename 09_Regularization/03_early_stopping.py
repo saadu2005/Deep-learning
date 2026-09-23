@@ -1,3 +1,10 @@
+"""File purpose: Demonstrate early stopping with a validation set on a simple regression problem.
+
+Explanation: The training callback stops when validation loss stops improving and restores the best weights. The data follow a synthetic linear rule.
+
+Real-life example: A production image model can stop training once performance on a separate validation set no longer improves, saving time and limiting overfitting.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

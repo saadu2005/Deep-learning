@@ -1,3 +1,10 @@
+"""File purpose: Demonstrate PyTorch automatic differentiation for a single variable.
+
+Explanation: The code builds y = x squared, calls backward, and prints the derivative that autograd calculated.
+
+Real-life example: During model training, autograd calculates how much each parameter contributed to prediction error so an optimizer can update it.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

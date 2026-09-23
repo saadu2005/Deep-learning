@@ -1,3 +1,10 @@
+"""File purpose: Calculate scaled dot-product attention for one query and two key/value pairs.
+
+Explanation: The script scores how strongly the query matches each key, applies softmax to make weights, and uses them to combine the value vectors.
+
+Real-life example: In a sentence, attention can let a model give more weight to the words most relevant to interpreting an ambiguous word such as bank.
+"""
+
 # ==========================================
 # Simple Scaled Dot-Product Attention
 # ==========================================

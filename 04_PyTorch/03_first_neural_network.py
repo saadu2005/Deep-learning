@@ -1,15 +1,21 @@
+"""File purpose: Train a small feed-forward PyTorch network to learn a numeric relationship.
+
+Explanation: The script builds layers, calculates mean squared error, updates weights with Adam, and predicts a value for a new input.
+
+Real-life example: A shop could learn a rough relationship between the number of items ordered and the total order cost from past orders.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================
 import torch
 import torch.nn as nn
-torch.manual_seed(42)
 
 # ==========================================
 # 2. Create Dataset
 # ==========================================
-X = torch.arange(0, 10, dtype=torch.float32).reshape(-1, 1)
-y = 2.0 * X
+X = torch.tensor([[0.0], [1.0], [2.0], [3.0]])
+y = torch.tensor([[0.0], [2.0], [4.0], [6.0]])
 
 # ==========================================
 # 3. Build Model
@@ -29,7 +35,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
 # ==========================================
 # 5. Train Model
 # ==========================================
-for epoch in range(1500):
+for epoch in range(1000):
     prediction = model(X)
     loss = loss_function(prediction, y)
 

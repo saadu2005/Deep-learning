@@ -1,3 +1,10 @@
+"""File purpose: Define and summarize an LSTM model for sequence data.
+
+Explanation: The model reads a sequence of ten single-value time steps and produces one numeric output; this file builds the model but does not train it.
+
+Real-life example: An energy dashboard could use an LSTM to learn how earlier meter readings relate to later demand.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

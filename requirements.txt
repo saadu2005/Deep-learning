@@ -1,3 +1,17 @@
-# Install both frameworks, or choose requirements-tensorflow.txt / requirements-pytorch.txt.
--r requirements-tensorflow.txt
--r requirements-pytorch.txt
+# Purpose: list the libraries used by the repository’s lessons and projects.
+# Real-life example: create a virtual environment and install this file before
+# running a model that learns to classify product photos or forecast sales.
+# NumPy: numeric arrays, such as batches of image pixels.
+numpy
+# pandas: table and CSV handling for business or time-series datasets.
+pandas
+# Matplotlib: charts for checking training curves and data patterns.
+matplotlib
+# scikit-learn: sample datasets, data splitting, and preprocessing tools.
+scikit-learn
+# TensorFlow: framework used by the TensorFlow/Keras lesson files.
+tensorflow
+# PyTorch: framework used by the PyTorch lesson files.
+torch
+# Torchvision: common image datasets and transforms for PyTorch projects.
+torchvision

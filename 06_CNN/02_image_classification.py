@@ -1,3 +1,10 @@
+"""File purpose: Train and evaluate a convolutional network on the MNIST handwritten-digit dataset.
+
+Explanation: The script normalizes image pixels, adds a channel dimension, trains a two-convolution model, and reports test accuracy.
+
+Real-life example: A mailroom scanner could use a digit model to read handwritten digits on postal codes, followed by human review for uncertain readings.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

@@ -1,3 +1,10 @@
+"""File purpose: Show a manual gradient calculation and one weight update for a simple prediction.
+
+Explanation: The script measures squared error, calculates how changing the weight affects that error, and moves the weight in the direction that reduces it.
+
+Real-life example: A delivery-time model can adjust a distance weight after comparing its predicted travel time with the actual time.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

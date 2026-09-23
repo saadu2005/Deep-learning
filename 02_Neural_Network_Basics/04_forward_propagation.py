@@ -1,3 +1,10 @@
+"""File purpose: Calculate a forward pass through a two-layer neural network.
+
+Explanation: The code multiplies inputs by layer weights, adds biases, applies ReLU in the hidden layer, and produces an output score.
+
+Real-life example: A pricing model could pass product size and delivery distance through hidden layers to estimate a delivery charge.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

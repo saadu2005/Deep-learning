@@ -1,3 +1,10 @@
+"""File purpose: Provide a compact end-to-end CNN example for classifying MNIST digits.
+
+Explanation: The script loads and normalizes digit images, trains a small convolutional model, and measures accuracy on the test set.
+
+Real-life example: A service that digitizes paper forms could use this type of model to suggest handwritten digits for an operator to verify.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

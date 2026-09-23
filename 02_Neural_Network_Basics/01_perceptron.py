@@ -1,3 +1,10 @@
+"""File purpose: Demonstrate a perceptron that makes a binary decision from a weighted input score.
+
+Explanation: The code calculates a dot product, adds a bias, and uses a step rule to return class 0 or class 1.
+
+Real-life example: A simple access rule could combine signals such as a valid badge and an approved schedule to decide whether to open a door.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

@@ -1,3 +1,10 @@
+"""File purpose: Show how one neuron combines numeric inputs and applies the ReLU activation function.
+
+Explanation: The code calculates a weighted sum plus bias, then replaces a negative result with zero.
+
+Real-life example: A sensor-monitoring model could combine temperature and vibration readings into a non-negative activation used by later layers.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

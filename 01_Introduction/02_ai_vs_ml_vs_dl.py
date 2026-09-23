@@ -1,3 +1,10 @@
+"""File purpose: Explain how artificial intelligence, machine learning, and deep learning relate to one another.
+
+Explanation: The script stores a short definition for each term and prints the definitions in a readable form.
+
+Real-life example: A photo-organizing app is an AI product; it may use machine learning to learn from examples and deep learning to recognize objects in photos.
+"""
+
 # ==========================================
 # AI vs ML vs Deep Learning
 # ==========================================

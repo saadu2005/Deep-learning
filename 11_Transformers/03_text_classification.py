@@ -1,41 +1,59 @@
-"""A minimal trainable Transformer encoder text classifier (toy token data).
+"""File purpose: Provide a simple token-embedding text classifier that predicts one of two labels.
 
-Training-set accuracy below is only a demonstration, NOT a generalization metric.
+Explanation: The model averages embedded token information with GlobalAveragePooling1D and reports training-set accuracy. Despite the folder name, this is a simple baseline, not a Transformer, and it uses only four examples.
+
+Real-life example: A store could classify product reviews as likely positive or negative after replacing the toy token sequences with a larger, properly split review dataset.
 """
-import numpy as np
+
+# ==========================================
+# 1. Import Libraries
+# ==========================================
 import tensorflow as tf
-from tensorflow.keras import Model, Input, layers
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Embedding, GlobalAveragePooling1D, Dense
 
-tf.keras.utils.set_random_seed(42)
-X = np.array([[1, 2, 3, 0, 0], [2, 3, 4, 0, 0],
-              [5, 6, 7, 0, 0], [6, 7, 8, 0, 0]], dtype='int32')
-y = np.array([1, 1, 0, 0], dtype='float32')
+# ==========================================
+# 2. Create Simple Token Dataset
+# ==========================================
+X = tf.constant([
+    [1, 2, 3, 0, 0],
+    [2, 3, 4, 0, 0],
+    [5, 6, 7, 0, 0],
+    [6, 7, 8, 0, 0]
+])
 
-# A Keras layer keeps both embedding tables tracked as trainable model weights.
-class TokenAndPositionEmbedding(layers.Layer):
-    def __init__(self, length, vocabulary_size, embedding_size):
-        super().__init__()
-        self.token_embedding = layers.Embedding(vocabulary_size, embedding_size)
-        self.position_embedding = layers.Embedding(length, embedding_size)
+y = tf.constant([1, 1, 0, 0])
 
-    def call(self, tokens):
-        positions = tf.range(start=0, limit=tf.shape(tokens)[-1], delta=1)
-        return self.token_embedding(tokens) + self.position_embedding(positions)
+# ==========================================
+# 3. Build Text Classifier
+# ==========================================
+model = Sequential([
+    Embedding(input_dim=10, output_dim=16, mask_zero=True),
+    GlobalAveragePooling1D(),
+    Dense(16, activation="relu"),
+    Dense(1, activation="sigmoid")
+])
 
+# ==========================================
+# 4. Compile Model
+# ==========================================
+model.compile(
+    optimizer="adam",
+    loss="binary_crossentropy",
+    metrics=["accuracy"]
+)
 
-tokens = Input(shape=(5,), dtype='int32')
-x = TokenAndPositionEmbedding(length=5, vocabulary_size=10, embedding_size=16)(tokens)
-
-# Self-attention encoder block, residual connection, normalization and MLP.
-attention = layers.MultiHeadAttention(num_heads=2, key_dim=8)(x, x)
-x = layers.LayerNormalization()(x + attention)
-feed_forward = layers.Dense(32, activation='relu')(x)
-feed_forward = layers.Dense(16)(feed_forward)
-x = layers.LayerNormalization()(x + feed_forward)
-x = layers.GlobalAveragePooling1D()(x)
-predictions = layers.Dense(1, activation='sigmoid')(x)
-model = Model(tokens, predictions)
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+# ==========================================
+# 5. Train Model
+# ==========================================
 model.fit(X, y, epochs=20, verbose=0)
-_, training_accuracy = model.evaluate(X, y, verbose=0)
-print('Toy training accuracy (NOT held-out accuracy):', training_accuracy)
+
+# ==========================================
+# 6. Evaluate Model
+# ==========================================
+_, accuracy = model.evaluate(X, y, verbose=0)
+
+# ==========================================
+# 7. Display Result
+# ==========================================
+print("Training Accuracy:", accuracy)

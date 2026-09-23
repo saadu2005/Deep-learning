@@ -1,3 +1,10 @@
+"""File purpose: Train a small TensorFlow neural network on a simple numeric regression pattern.
+
+Explanation: The model learns the mapping y = 2x from four examples and then predicts the output for a new input.
+
+Real-life example: A small business could estimate a simple order cost from item quantity when each item adds roughly the same amount.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================

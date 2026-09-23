@@ -1,3 +1,10 @@
+"""File purpose: Demonstrate binary text classification with token embeddings and an LSTM.
+
+Explanation: The model reads padded token-ID sequences and predicts one of two labels. The included four-row dataset is also used for evaluation, so its accuracy is not a measure of new-text performance.
+
+Real-life example: A review site could use an LSTM to flag likely positive or negative product comments before a human moderator reviews edge cases.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================
@@ -45,4 +52,4 @@ _, accuracy = model.evaluate(X, y, verbose=0)
 # ==========================================
 # 7. Display Result
 # ==========================================
-print("Toy training accuracy (NOT held-out accuracy):", accuracy)
+print("Training Accuracy:", accuracy)

@@ -1,37 +1,26 @@
-# Python
+# Purpose: stop generated files and machine-specific files from being committed.
+# Real-life example: when sharing this tutorial, other learners should not get
+# your local virtual environment, editor settings, model files, or downloaded data.
+
+# Python bytecode created automatically when scripts run.
 __pycache__/
 *.py[cod]
-.pytest_cache/
-.ruff_cache/
-.mypy_cache/
+
+# Local Python environments installed on one computer.
 .venv/
 venv/
 env/
-*.egg-info/
 
-# Editors and OS
+# Notebook checkpoints and personal editor/project settings.
+.ipynb_checkpoints/
 .vscode/
 .idea/
-.DS_Store
-Thumbs.db
 
-# Local data, downloaded archives and training outputs
-artifacts/
-outputs/
-checkpoints/
-datasets/downloads/
-*.keras
+# Large trained model artifacts that can be regenerated from code and data.
 *.h5
+*.keras
 *.pt
 *.pth
-*.ckpt
-*.onnx
-*.tflite
-*.pkl
-*.joblib
 
-# Secrets
-.env
-.env.*
-!.env.example
-*.pem
+# Downloaded datasets; keep the repository small and share a source instead.
+datasets/downloads/

@@ -1,3 +1,10 @@
+"""File purpose: Present the main steps in a typical deep-learning project.
+
+Explanation: The script prints a checklist from defining a problem and preparing data through evaluation, tuning, saving, and deployment.
+
+Real-life example: For a fruit-quality checker, the workflow would gather fruit photos, label them, train a model, test it on unseen photos, then connect it to a sorting station.
+"""
+
 # ==========================================
 # Deep Learning Workflow
 # ==========================================

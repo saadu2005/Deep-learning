@@ -1,3 +1,10 @@
+"""File purpose: Build a TensorFlow model for a two-class problem using a sigmoid output.
+
+Explanation: The toy data follows the logical OR rule; the model learns to output a probability for class 0 or class 1.
+
+Real-life example: A basic message filter could classify a message as suspicious when either of two warning signals is present. This tiny example is for learning, not for a production filter.
+"""
+
 # ==========================================
 # 1. Import Libraries
 # ==========================================
@@ -42,4 +49,4 @@ loss, accuracy = model.evaluate(X, y, verbose=0)
 # ==========================================
 # 7. Display Result
 # ==========================================
-print("Toy training accuracy (NOT held-out accuracy):", accuracy)
+print("Accuracy:", accuracy)
